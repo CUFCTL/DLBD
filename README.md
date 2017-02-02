@@ -3,7 +3,7 @@
 This repository contains exploratory studies into datasets and deep learning techniques for object detection, segmentation, and many other machine learning applications.
 
 **Graduate Team Members**:
-	[Edwin Weill](<mailto:eweill@g.clemson.edu>)
+	[Edwin Weill](<mailto:eweill@g.clemson.edu>),
 	[Jesse Tetreault](<mailto:jtetrea@g.clemson.edu>),
 	[Ankit Kulshrestha](<mailto:akulshr@g.clemson.edu>)
 
