@@ -9,8 +9,8 @@ This repository contains exploratory studies into datasets and deep learning tec
 	[Dr. Melissa Smith](<mailto:smithmc@clemson.edu>)
 
 **Graduate Team Members**:
-	[Jesse Tetreault](<mailto:jtetrea@g.clemson.edu>)
-	[Ankit Kulshrestha](<mailto:akulshr@g.clemson.edu>),
+	[Jesse Tetreault](<mailto:jtetrea@g.clemson.edu>),
+	[Ankit Kulshrestha](<mailto:akulshr@g.clemson.edu>)
 
 ## Getting Started
 
