@@ -8,7 +8,7 @@ This repository contains exploratory studies into datasets and deep learning tec
 	[Ankit Kulshrestha](<mailto:akulshr@g.clemson.edu>)
 
 **Advisor**: 
-	[Dr. Melissa Smith](<mailto:smithmc@clemson.edu>)
+	[Dr. Melissa Smith](http://www.clemson.edu/cecas/departments/ece/faculty_staff/faculty/msmith.html)
 
 
 
