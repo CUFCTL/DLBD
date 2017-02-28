@@ -145,8 +145,12 @@ if __name__ == '__main__':
 	label_file = open(sys.argv[2])
 	labels_split = label_file.read().split('\n')
 
-	# Rename kitti directories and create yolo directoriesd
-	rename_kitti_directories(sys.argv[1])
+	# Rename kitti directories and create yolo directories
+	if not os.path.exists(sys.argv[1] + "train/images-kitti") or \
+	   not os.path.exists(sys.argv[1] + "train/labels-kitti") or \
+	   not os.path.exists(sys.argv[1] + "val/images-kitti") or \
+	   not os.path.exists(sys.argv[1] + "val/labels-kitti"):
+	   rename_kitti_directories(sys.argv[1])
 	make_yolo_directories(sys.argv[1])
 
 	# Go through training data
