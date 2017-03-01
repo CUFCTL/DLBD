@@ -13,14 +13,12 @@ from time import sleep
 desired_images = 1;
 n_labels = 5 #five labels per image
 
+#background dimensions
 desired_width = 1024
 desired_height = 768
+
 max_label_size = 300
 min_label_size = 10
-noise_mean = 0
-noise_std = 0.5
-blur_min_size = 7
-blur_max_size = 19
 
 
 label_format = 'kitti' # options: 'kitti', 'yolo', 'mxnet', 'txt'
@@ -43,10 +41,11 @@ def tiltLabel(image, bgX, bgY, label_size_y, iteration):
     label_size_x = int(label_size_y * label.shape[1]/label.shape[0])
     label = cv2.resize(label, (label_size_x, label_size_y))
     
-
     #Manipulate label here
 
     
+    
+
     
 
     
@@ -152,8 +151,6 @@ if __name__ == '__main__':
                             f.write("Label {} {} {} {}\n".format(left, top, right, bottom))
 
             cv2.imwrite('./new/edit_{:05d}.png'.format(i), edit)
-      
-            
             print ("Image Created")
             
             
