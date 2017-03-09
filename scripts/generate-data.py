@@ -39,7 +39,7 @@ image_dir = "/data/BMW_Labels/images/"
 
 
 # Find a valid location for label wtihin the image, place it there
-def pasteLabel(image, bgX, gbY, label_size_y, iteration):
+def pasteLabel(image, bgX, bgY, label_size_y, iteration):
 
 	# Pick random label from the label set
 	label_choice = random.choice(glob(os.path.join(image_dir, "*.PNG")))
@@ -104,7 +104,7 @@ def pasteLabel(image, bgX, gbY, label_size_y, iteration):
     	overlap_found = np.any(target_area < 225)
 
     image[label_y_location : label_y_location + label.shape[0],
-    	  label_x_location : label_x_location_label.shape[1]] = label_size_y
+    	  label_x_location : label_x_location + label.shape[1]] = label_size_y
 
     # Return coordinates and size of label
     coord = np.where(label[:] > 0)
