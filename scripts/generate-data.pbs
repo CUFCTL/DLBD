@@ -3,5 +3,5 @@
 
 module add gcc/4.8.1
 
-cd $1
+cd <path to generate-data.py script>
 python generate-data.py
