@@ -1,0 +1,7 @@
+#PBS -N generate-data
+#PBS -l select=1:ncpus=8:ngpus=1:gpu_model=k40:mem=64gb,walltime=12:00:00
+
+module add gcc/4.8.1
+
+cd $1
+python generate-data.py

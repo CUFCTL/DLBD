@@ -104,7 +104,7 @@ def pasteLabel(image, bgX, bgY, label_size_y, iteration):
         overlap_found = np.any(target_area < 225)
 
     image[label_y_location : label_y_location + label.shape[0],
-          label_x_location : label_x_location + label.shape[1]] = label_size_y
+          label_x_location : label_x_location + label.shape[1]] = label
 
     # Return coordinates and size of label
     coord = np.where(label[:] > 0)
