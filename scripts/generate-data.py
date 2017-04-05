@@ -85,6 +85,8 @@ def pasteLabel(image, bgX, bgY, label_size_y, iteration):
     else:
         overlap_found = True
 
+
+    TimesTried = 0
     # Check for overlap in random location chosen 
     while overlap_found:
 
@@ -92,7 +94,6 @@ def pasteLabel(image, bgX, bgY, label_size_y, iteration):
         label_x_location = random.randint(0, max_x_range)
         label_y_location = random.randint(0, max_y_range)
 
-        TimesTried = 0
         TimesTried = TimesTried + 1
         if TimesTried > 10:
             return (image, 0, 0, 0, 0, 1)
@@ -201,3 +202,4 @@ if __name__ == '__main__':
 
             # Write the resulting image to a file
             cv2.imwrite("{}{}/images/data_{:05d}.png".format(saved_dir, dataset, i), newPicture)
+            print ("Processing {}{}/images/data_{:05d}.png".format(saved_dir, dataset, i))
