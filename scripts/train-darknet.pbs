@@ -1,0 +1,10 @@
+#PBS -N train-darknet
+#PBS -l select=1:ncpus=8:ngpus=1:gpu_model=k40:mem=64gb,walltime=12:00:00
+
+module purge
+module add gcc/4.8.1 anaconda/4.2.0
+module add opencv/2.4.9 ffmpeg/2.4
+module add cuda-toolkit/8.0.44 cuDNN/8.0v5.1
+
+cd <darknet-directory>
+./darknet detector train data/bmw.data cfg/yolo-bmw.cfg weights/darknet19_448.conv.23
