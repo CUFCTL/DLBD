@@ -19,7 +19,7 @@ New team members should look at the [Wiki](https://github.com/CUFCTL/dlbd-ci/wik
 ## Results
 
 ### Autonomous Driving Detection
-![](images/ad-1.png) ![](images/ad-2.png)
+<img src="images/ad-1.png" width="425"/> <img src="images/ad-2.png" width="425"/>
 
 ### Label/Barcode Detection
 
