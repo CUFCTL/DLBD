@@ -24,8 +24,8 @@ New team members should look at the [Wiki](https://github.com/CUFCTL/dlbd-ci/wik
 <img src="images/ad-1.png" width="425" height="250"/> <img src="images/ad-2.png" width="425" height="250"/>
 
 ### Label/Barcode Detection
-<img src="images/ld-1.png" width="250" height="250"/> <img src="images/ld-2.png" width="250" height="250"/>
-<img src="images/ld-3.png" width="250" height="250"/> <img src="images/ld-4.png" width="250" height="250"/>
+<img src="images/ld-1.png" width="350" height="350"/> <img src="images/ld-2.png" width="350" height="350"/>
+<img src="images/ld-3.png" width="350" height="350"/> <img src="images/ld-4.png" width="350" height="350"/>
 
 ### Architectural Diagram
 The following is the YOLO architecture:
