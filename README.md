@@ -4,12 +4,14 @@ This repository contains exploratory studies into datasets and deep learning tec
 
 **Graduate Team Members**:
 	[Edwin Weill](<mailto:eweill@g.clemson.edu>),
-	[Jesse Tetreault](<mailto:jtetrea@g.clemson.edu>),
 	[Ankit Kulshrestha](<mailto:akulshr@g.clemson.edu>)
 
 **Advisor**: 
 	[Dr. Melissa Smith](http://www.clemson.edu/cecas/departments/ece/faculty_staff/faculty/msmith.html)
 
+**Previous Graduate Team Members**:
+	[Jesse Tetreault](<mailto:jtetrea@g.clemson.edu>),
+	[Varun Praveen](<mailto:pravee2@g.clemson.edu>)
 
 
 ## Getting Started
@@ -22,7 +24,8 @@ New team members should look at the [Wiki](https://github.com/CUFCTL/dlbd-ci/wik
 <img src="images/ad-1.png" width="425" height="250"/> <img src="images/ad-2.png" width="425" height="250"/>
 
 ### Label/Barcode Detection
-
+<img src="images/ld-1.png" width="250" height="250"/> <img src="images/ld-2.png" width="250" height="250"/>
+<img src="images/ld-1.png" width="425" height="250"/> <img src="images/ld-2.png" width="250" height="250"/>
 
 ### Architectural Diagram
 The following is the YOLO architecture:
