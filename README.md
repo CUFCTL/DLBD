@@ -18,4 +18,12 @@ New team members should look at the [Wiki](https://github.com/CUFCTL/dlbd-ci/wik
 
 ## Results
 
-This section will be populated as results are generated.
+### Autonomous Driving Detection
+![](images/ad-1.png) ![](images/ad-2.png)
+
+### Label/Barcode Detection
+
+
+### Architectural Diagram
+The following is the YOLO architecture:
+![](images/yolov1.png)
