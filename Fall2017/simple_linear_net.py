@@ -46,8 +46,8 @@ net = Net()
 print(net)
 
 X,y = gen_spiral_dataset()
-# plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=plt.cm.Spectral)
-# plt.show()
+plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=plt.cm.Spectral)
+plt.show()
 
 lossfn = nn.NLLLoss()
 optimz = optim.SGD(net.parameters(), lr=1e-3, momentum=0.9)
