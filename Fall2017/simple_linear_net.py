@@ -31,7 +31,7 @@ class Net(nn.Module):
 	"""
 	def __init__(self):
 		super(Net, self).__init__()
-		self.layer1 = nn.Linear(D, 64)
+		self.layer1 = nn.Linear(D, 64) # Linear layer: y = Wx + b 
 		self.layer2 = nn.Linear(64, K)
 		self.softmax = nn.LogSoftmax()
 
