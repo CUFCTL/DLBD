@@ -1,12 +1,12 @@
 """
-Convert raw DAC dataset to TFRecord for object_detection.
+Convert raw CI dataset to TFRecord for object_detection.
 
 Usage:
-    NOTE: Execute from CUFCTL-Track directory
-    python python/create_dac_tfrecords.py \
+    NOTE: Execute from ci-models directory
+    python create_ci_tfrecords.py \
         --label_map_path=<path to .pbtxt> \
-        --data_dir=<path to DACdevkit> \
-        --year=DAC2017 \
+        --data_dir=<path to CIdevkit> \
+        --year=CI2018 \
         --set=<train or val> \
         --output_path=data/tfrecords/<name>.record
 """
@@ -28,14 +28,14 @@ from object_detection.utils import label_map_util
 from utils import dict_to_tf_example
 
 flags = tf.app.flags
-flags.DEFINE_string('data_dir', '', 'Root directory to raw DAC dataset.')
+flags.DEFINE_string('data_dir', '', 'Root directory to raw CI dataset.')
 flags.DEFINE_string('set', 'train', 'Convert training set, validation set or '
                     'merged set.')
 flags.DEFINE_string('annotations_dir', 'Annotations',
                     '(Relative) path to annotations directory.')
-flags.DEFINE_string('year', 'DAC2017', 'Desired challenge year.')
+flags.DEFINE_string('year', 'CI2018', 'Desired challenge year.')
 flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
-flags.DEFINE_string('label_map_path', 'data/dac_label_map.pbtxt',
+flags.DEFINE_string('label_map_path', 'data/ci_label_map.pbtxt',
                     'Path to label map proto')
 flags.DEFINE_boolean('ignore_difficult_instances', False, 'Whether to ignore '
                      'difficult instances')

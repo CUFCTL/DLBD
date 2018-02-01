@@ -2,9 +2,9 @@
 Create training and validation sets
 
 Usage:
-    NOTE: Execute from CUFCTL-Track directory
-    python python/create_trainval_set.py \
-        --dac <dac_devkit directory (DACdevkit)> \
+    NOTE: Execute from ci-models directory
+    python create_trainval_set.py \
+        --out_path <ci_devkit directory (CIdevkit)> \
         --train 0.75 --val 0.25
 """
 
@@ -30,7 +30,7 @@ def parse_args():
     required = parser.add_argument_group('required_arguments')
     required.add_argument('--out_path',
         dest='out_path',
-        help='DAC Devkit directory (DACdevkit)')
+        help='CI Devkit directory (CIdevkit)')
     required.add_argument('--train',
         dest='train',
         help='Percentage for training set (i.e. 0.75, 0.80, etc.)',

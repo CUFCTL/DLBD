@@ -86,12 +86,12 @@ def draw_bb(img_path, oimg_path):
     cv2.imwrite(oimg_path, img)
 
 ### XML Utilities
-def read_dac_xml(dac_xml, type_data):
+def read_ci_xml(ci_xml, type_data):
     """
-    Read XML tree structure from DAC XML file
+    Read XML tree structure from CI XML file
 
     Parameters:
-        dac_xml - XML file in DAC format
+        ci_xml - XML file in CI format
         type_data - 13-class or 100-class
     Returns:
         folder - directory where image is located
@@ -105,8 +105,8 @@ def read_dac_xml(dac_xml, type_data):
         ymax - bottom right y coordinate
         ymin - top left y coordinate
     """
-    dac_tree = etree.parse(dac_xml)
-    root = dac_tree.getroot()
+    ci_tree = etree.parse(ci_xml)
+    root = ci_tree.getroot()
 
     folder, filename, database = '', '', ''
     name, width, height = '', '', ''
@@ -163,9 +163,9 @@ def make_voc_directories(voc_path):
     if os.path.exists(voc_path):
         shutil.rmtree(voc_path)
     os.makedirs(voc_path)
-    os.makedirs(os.path.join(voc_path, 'DAC2017'))
-    os.makedirs(os.path.join(voc_path, 'DAC2017', 'Annotations'))
-    os.makedirs(os.path.join(voc_path, 'DAC2017', 'JPEGImages'))
+    os.makedirs(os.path.join(voc_path, 'CI2018'))
+    os.makedirs(os.path.join(voc_path, 'CI2018', 'Annotations'))
+    os.makedirs(os.path.join(voc_path, 'CI2018', 'JPEGImages'))
 
 def determine_prepend(vid_path):
     """
@@ -186,29 +186,29 @@ def determine_prepend(vid_path):
     else:
         return vid_1 + '_' + vid_2 + '_' + vid_3
 
-def copy_images(dac_path, voc_path):
+def copy_images(ci_path, voc_path):
     """
-    Copy images from the DAC directory to VOC JPEGImages directory
+    Copy images from the CI directory to VOC JPEGImages directory
     while renaming all images.
     Images are renamed by prepending the "video" (directory) name.
     Ex: 360(12)-2/0001.jpg -> 360_12_2_0001.jpg
 
     Parameters:
-        dac_path - path to original DAC training data
+        ci_path - path to original CI training data
         voc_path - path to VOC JPEGImages directory to write to
     Returns:
         None
     """
-    for video in sorted(os.listdir(dac_path)):
+    for video in sorted(os.listdir(ci_path)):
         if video == '.DS_Store':    # For MAC
             continue
-        vid_path = os.path.join(dac_path, video)
+        vid_path = os.path.join(ci_path, video)
         #prepend = determine_prepend(vid_path)
         prepend = video
-        for filename in os.listdir(os.path.join(dac_path, video)):
+        for filename in os.listdir(os.path.join(ci_path, video)):
             if filename.split('.')[-1] == 'jpg':
-                jpg = os.path.join(dac_path, video, filename)
-                shutil.copy(jpg, os.path.join(voc_path, 'DAC2017', 'JPEGImages', prepend + '_' + filename))
+                jpg = os.path.join(ci_path, video, filename)
+                shutil.copy(jpg, os.path.join(voc_path, 'CI2018', 'JPEGImages', prepend + '_' + filename))
 
 def write_xml(fd, fn, db, w, h, name, xmax, xmin, ymax, ymin, xml, voc_path):
     """
@@ -232,7 +232,7 @@ def write_xml(fd, fn, db, w, h, name, xmax, xmin, ymax, ymin, xml, voc_path):
     """
     full_fn = xml.split('/')[-1]
     xml_fn = full_fn.split('.')[0] + '.xml'
-    f = open(os.path.join(voc_path, 'DAC2017', 'Annotations', xml_fn), 'w')
+    f = open(os.path.join(voc_path, 'CI2018', 'Annotations', xml_fn), 'w')
     line = '<annotation>\n'; f.write(line)
     line = '\t<filename>' + full_fn + '</filename>\n'; f.write(line)
     line = '\t<folder>' + fd + '</folder>\n'; f.write(line)
@@ -280,26 +280,26 @@ def write_pbtxt(class_labels, type_data):
     if not os.path.exists('data'):
         os.makedirs('data')
     if type_data == 13:
-        f = open(os.path.join('data', 'dac_label_map_coarse.pbtxt'), 'w')
+        f = open(os.path.join('data', 'ci_label_map_coarse.pbtxt'), 'w')
     else:
         f = open(os.path.join('data', 'ci_label_map.pbtxt'), 'w')
-    #f = open(os.path.join('data', 'dac_label_map_' + str(type_data) + '.pbtxt'), 'w')
+    #f = open(os.path.join('data', 'ci_label_map_' + str(type_data) + '.pbtxt'), 'w')
     for idx, label in enumerate(class_labels):
         line = 'item {\n'; f.write(line)
         line = '\tid: ' + str(idx+1) + '\n'; f.write(line)
         line = '\tname: "' + label + '"\n}\n'; f.write(line)
     f.close()
 
-def convert_xml(dac_path, voc_path, type_data):
+def convert_xml(ci_path, voc_path, type_data):
     """
-    Copy XML files from the DAC directory to VOC Annotations directory
+    Copy XML files from the CI directory to VOC Annotations directory
     while converting the contents of the XML file and renaming based on the
     image.
     XML files will be named by prepending the "video" (directory) name.
     Ex. 360(12)-2/0001.xml -> 360_12_2_0001.xml
 
     Parameters:
-        dac_path - path to original DAC training data
+        ci_path - path to original CI training data
         voc_path - path to VOC Annotations directory to write to
         type_data - 13-class dataset or 100-class dataset
     Returns:
@@ -307,20 +307,20 @@ def convert_xml(dac_path, voc_path, type_data):
     """
     class_labels = []
     num_noname = 0 
-    for video in sorted(os.listdir(dac_path)):
+    for video in sorted(os.listdir(ci_path)):
         if video == '.DS_Store':    # For MAC
             continue
-        vid_path = os.path.join(dac_path, video)
+        vid_path = os.path.join(ci_path, video)
         prepend = determine_prepend(vid_path)
-        for filename in os.listdir(os.path.join(dac_path, video)):
+        for filename in os.listdir(os.path.join(ci_path, video)):
             if filename.split('.')[-1] == 'xml':
-                xml = os.path.join(dac_path, video, filename)
+                xml = os.path.join(ci_path, video, filename)
                 xml_fn = prepend + '_' + filename
                 # fd = folder
                 # fn = filename
                 # db = database
                 # w, h = image width, height
-                fd, fn, db, w, h, name, xmax, xmin, ymax, ymin = read_dac_xml(xml, type_data)
+                fd, fn, db, w, h, name, xmax, xmin, ymax, ymin = read_ci_xml(xml, type_data)
                 if not name == '' and not name in class_labels:
                     class_labels.append(name)
                 if name == '':
@@ -339,7 +339,7 @@ def reid_read_xml(xml_file):
     Read XML tree structure to get bounding box coordinates
 
     Parameters:
-        xml_file - XML file in DAC format
+        xml_file - XML file in CI format
     Returns:
         xmax - bottom right x coordinate
         xmin - top left x coordinate
@@ -378,14 +378,14 @@ def dict_to_tf_example(data,
   by the raw data.
 
   Args:
-    data: dict holding DAC XML fields for a single image (obtained by
+    data: dict holding CI XML fields for a single image (obtained by
       running dataset_util.recursive_parse_xml_to_dict)
-    dataset_directory: Path to root directory holding DAC dataset
+    dataset_directory: Path to root directory holding CI dataset
     label_map_dict: A map from string label names to integers ids.
     ignore_difficult_instances: Whether to skip difficult instances in the
       dataset  (default: False).
     image_subdirectory: String specifying subdirectory within the
-      DAC dataset directory holding the actual image data.
+      CI dataset directory holding the actual image data.
 
   Returns:
     example: The converted tf.Example.
