@@ -1,0 +1,22 @@
+#PBS -N train_tf
+#PBS -l select=1:ncpus=20:mem=16gb:ngpus=2:gpu_model=k40,walltime=48:00:00
+#PBS -j oe
+
+# Add all necessary modules that your job will need.
+# These are the same as those that should be in your .bashrc,
+# but they need to be added here as this is a new 'environment'
+module add anaconda3/4.3.0
+module add cuda-toolkit/8.0.44
+module add cuDNN/8.0v6
+
+# Activate your Anaconda environment
+source activate ci-py35
+
+# Change directories into your ci-models directory
+cd /home/${USER}/ci-models/
+
+# Run the training command
+python research/object_detection/train.py \
+    --logtostderr \
+    --pipeline_config_path=data/ssd_inception_v2_coco_ci.config \
+    --train_dir=data/train_ckpts/ssd_inception_v2_coco_ci
