@@ -47,11 +47,11 @@ def parse_args():
     optional = parser._action_groups.pop()
     required = parser.add_argument_group('required arguments')
     optional.add_argument('--img_count',
-        dest = '--img_count',
+        dest = 'img_count',
         help = 'How many images to copy from data',
         default=10)
     required.add_argument('--class_name',
-        dest = '--class_name',
+        dest = 'class_name',
         help = 'Class name for data (i.e. boat2, etc.)')
     parser._action_groups.append(optional)
     return parser.parse_args()
