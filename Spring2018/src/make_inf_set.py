@@ -31,7 +31,7 @@ def copy_rnd_images(data_dir, test_img_dir, img_count):
         img_name = random.choice(os.listdir(data_dir))
         if img_name.split('.')[1] == 'jpg':
             shutil.copy(os.path.join(data_dir, img_name),
-                os.path.join(test_img_dir, 'image%02d.jpg' % (idx)))
+                os.path.join(test_img_dir, 'image%01d.jpg' % (idx)))
             idx += 1
         print(idx)
         print(img_count)
