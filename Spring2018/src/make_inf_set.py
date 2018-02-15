@@ -33,8 +33,6 @@ def copy_rnd_images(data_dir, test_img_dir, img_count):
             shutil.copy(os.path.join(data_dir, img_name),
                 os.path.join(test_img_dir, 'image%01d.jpg' % (idx)))
             idx += 1
-        print(idx)
-        print(img_count)
 
 def parse_args():
     """
