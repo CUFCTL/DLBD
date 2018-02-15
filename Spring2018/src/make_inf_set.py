@@ -26,13 +26,15 @@ def make_clean_directory(dir_name):
     os.makedirs(dir_name)
 
 def copy_rnd_images(data_dir, test_img_dir, img_count):
-    idx = 0
-    while idx < img_count:
+    idx = 1
+    while idx < int(img_count)+1:
         img_name = random.choice(os.listdir(data_dir))
         if img_name.split('.')[1] == 'jpg':
             shutil.copy(os.path.join(data_dir, img_name),
-                os.path.join(test_img_dir, 'image{%02d}.jpg' % (idx)))
+                os.path.join(test_img_dir, 'image%02d.jpg' % (idx)))
             idx += 1
+        print(idx)
+        print(img_count)
 
 def parse_args():
     """
