@@ -15,7 +15,7 @@ source activate ci-py35
 # Change directories into your ci-models directory
 cd /home/${USER}/ci-models/
 
-# Run the training command
+# Run the eval command
 python research/object_detection/eval.py \
     --logtostderr \
     --pipeline_config_path=data/ssd_inception_v2_coco_ci.config \
