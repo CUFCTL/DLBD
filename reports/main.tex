@@ -88,6 +88,10 @@ In this section you can elaborate on any kind of knowledge gained during the cou
 
 In this section you will put any relevant results that you have achieved during the semester.  You should focus on results that show the dataset you have created as well as the training that you were able to accomplish.  Make sure to fully explain all the images or tables provided.  For example, if you have an image with a 3 labels and your network only detects 2 of them, try and make some justification of why you feel the last label was not detected.  If you are able to get performance metrics (precision, recall, mAP, etc.) for your network as well, make sure to put those in this section in either a table format or some way that it is easily distinguishable.
 
+\subsection{Single Class Detection}
+\subsection{20-Class Detection}
+\subsection{Final Project}
+
 \section{Conclusions and Future Work}
 
 In this section you can make conclusions about the results that you achieved during the course of the semester.  If you have any ideas for continued work in the CI, you can put those in this section as well.  For example, if there is a particular project which you think will fit well in the CI and you want to work on it, this would be a good place to explain it briefly.
@@ -101,7 +105,7 @@ Below you will find a few helpful hints for creating different objects (i.e. tab
 Use \texttt{section}s and \texttt{subsection}s to organize your document. \LaTeX{} handles all the formatting and numbering automatically. Use \texttt{ref} and \texttt{label} for cross-references --- this is Section~\ref{design}, for example.
 You can also add math formula in sentences such as $\frac{\pi}{2}$.
 \subsection*{Tables and Figures}
-You can create a table as shown in \ref{tab:table1}.
+You can create a table as shown in \ref{tab:table1}.  You can also go to the following URL (or do a simple Google search for Latex tables): https://www.sharelatex.com/learn/Tables.
 \begin{table}
 	\centering
 	\caption{Caption for the table.}
@@ -118,8 +122,9 @@ You can create a table as shown in \ref{tab:table1}.
 You can upload your figures (JPEG, PNG, or PDF) and inlude them in the document as shown in \ref{fig:your-figure}.
 
 % Commands to include a figure:
+% NOTE: the [h!] will put a figure exactly in LaTeX and without it, will go at the top of page
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{label.jpg}
+\includegraphics[width=\textwidth]{detection.jpg}
 \caption{\label{fig:your-figure}Example Label File}
 \end{figure}
 
